@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import VewProduct from './VewProduct'
+import Swal from 'sweetalert2'
  
 
 function Home() {
@@ -12,7 +13,18 @@ function Home() {
   },[])
 
   const handleDelet = (id)=>{
-   
+   Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+
+    
     fetch(`http://localhost:5000/products/${id}`,{
       method:'DELETE',
       headers:{
@@ -24,11 +36,24 @@ function Home() {
     .then(res=>res.json())
     .then(data=>{
       if(data.deletedCount>0){
+     
         const remainingdata = alldata.filter(data=>data._id!==id);
         setAllData(remainingdata)
         console.log(data)
+
+        
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
       }
     })  
+
+
+
+  }
+});
   }
   return (
     <div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 function VewProduct({data,handleDelet}) {
 
@@ -28,8 +29,8 @@ function VewProduct({data,handleDelet}) {
           <span className="text-2xl font-bold text-gray-900">${data.price}</span>
           
           {/* Add to Cart Button */}
-          <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition-all duration-300">
-            Add to Cart
+          <button   className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition-all duration-300">
+          <Link to={`/editprodunt/${data?._id}`}>Edit</Link>
           </button>
         </div>
 
@@ -44,7 +45,8 @@ function VewProduct({data,handleDelet}) {
 
         {/* Quick View Button */}
         <button className="w-full mt-4 text-gray-900 hover:text-white border border-gray-300 hover:bg-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors duration-300">
-          Quick View
+        <Link to={`/productdetails/${data?._id}`}>  Quick View</Link>
+       
         </button>
       <button onClick={()=>handleDelet(data?._id)} className='btn btn-secondary relative -top-90 -right-60'>X</button>
       </div>

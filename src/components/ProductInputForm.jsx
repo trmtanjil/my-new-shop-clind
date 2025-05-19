@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 export default function ProductInputForm() {
 
@@ -19,11 +20,18 @@ export default function ProductInputForm() {
     })
     .then(res=>res.json())
     .then(data=>{
-      
+      Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
       console.log(data)
     })
   }
 
+  
 
   return (
     <div className="  mx-auto p-4 bg-gray-600 shadow rounded-xl m-4">
