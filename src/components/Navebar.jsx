@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
+ 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +21,12 @@ const Navbar = () => {
             
             {/* Desktop Navigation */}
             <div className="hidden sm:ml-6 sm:flex items-center sm:space-x-4">
-              <NavLink href="#" active>Home</NavLink>
-              <NavLink href="#">About</NavLink>
-              <NavLink href="#">Services</NavLink>
-              <NavLink href="#">Contact</NavLink>
+               
+         
+             <button className="btn bg-gray-400 border-none">   <Link to='/'>Home </Link></button>
+             <button className="btn bg-gray-400 border-none">   <Link to='addproduct'>Add Product </Link></button>
+             <button className="btn bg-gray-400 border-none">   <Link to='addproduct'>Add Product </Link></button>
+           
             </div>
           </div>
 
@@ -51,10 +55,10 @@ const Navbar = () => {
       {/* Mobile Menu (responsive) */}
       <div className={`sm:hidden ${isOpen ? 'block' : 'hidden'}`}>
         <div className="pt-2 pb-3 space-y-1 px-4">
-          <MobileNavLink href="#" active>Home</MobileNavLink>
-          <MobileNavLink href="#">About</MobileNavLink>
-          <MobileNavLink href="#">Services</MobileNavLink>
-          <MobileNavLink href="#">Contact</MobileNavLink>
+          <Link >Home</Link>
+          <Link>About</Link>
+          <Link>Services</Link>
+          <Link>Contact</Link>
         </div>
         <div className="pb-3 pt-2 border-t border-gray-200 px-4 space-y-2">
           <Button fullWidth variant="outline">Sign in</Button>

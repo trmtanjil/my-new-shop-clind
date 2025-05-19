@@ -5,6 +5,7 @@ import {
 } from "react-router";
 import Home from "../components/Home";
 import MainLayout from "./MainLayout";
+import ProductInputForm from "../components/ProductInputForm";
  
 
 
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
         index:true,
         Component:Home,
       }, 
+      {
+        path:'addproduct',
+        Component:ProductInputForm,
+      }
       
     ]
   },
